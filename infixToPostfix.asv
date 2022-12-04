@@ -1,0 +1,21 @@
+function postfix = infixToPostfix(cadena)
+    operadores = java.util.Stack(); %Stack para guardar operadores
+    postfix = java.util.Stack();
+    lista = split(cadena);          %Separar los elementos 
+    for i = 1:length(lista)
+        if ~isstrprop(lista{i}, 'alphanum')
+          while (~operadores.isEmpty() && (getPrecedence(lista{i})) < getPrecedence(operadores.peek()))
+              %postfix(i) = (operadores.pop());
+              postfix.push(operadores.pop())
+          end
+          operadores.push(lista{i});
+        else
+             postfix.push(operadores.pop())
+        end   
+    end
+    while(~operadores.empty)
+         postfix.push(operadores.pop())
+    end
+end
+
+
