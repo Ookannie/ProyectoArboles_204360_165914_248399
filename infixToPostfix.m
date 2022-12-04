@@ -6,6 +6,13 @@ function postfix = infixToPostfix(cadena)
     for i = 1:length(lista)
         if ~isstrprop(lista{i}, 'alphanum')
           while (~operadores.isEmpty() && (menorPrecedencia(lista{i}, operadores.peek())))
+              if ((lista{i} == ')') || (lista{i} == '}') || (lista{i} ==  ']'))
+                  operador = operadores.peek();
+                  while((operador ~= '(') || (operador ~=  '{') || (operador ~=  '[') )
+                      postfix = [postfix operadores.pop()];
+                  end
+                  operadores.pop();
+              end
               postfix = [postfix operadores.pop()];
           end
           operadores.add(lista{i});
@@ -17,5 +24,7 @@ function postfix = infixToPostfix(cadena)
          postfix = [postfix operadores.pop()];
     end
 end
+
+
 
 

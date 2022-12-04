@@ -10,5 +10,7 @@ function precedencia = getPrecedence(operador)
             precedencia = 4;
         case {'(', '{', '['}
             precedencia = 5;
+        case {')', '}', ']'}
+            precedencia = 5;
     end
 end
