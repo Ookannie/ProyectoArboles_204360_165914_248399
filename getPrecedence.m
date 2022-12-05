@@ -11,6 +11,6 @@ function precedencia = getPrecedence(operador)
         case '('
             precedencia = 0;
         case ')'
-            precedencia = 5;
+            precedencia = 0;
     end
 end
