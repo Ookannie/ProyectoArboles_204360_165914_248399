@@ -6,11 +6,11 @@ function postfix = infixToPostfix(cadena)
     for i = 1:length(lista)
         if ~isstrprop(lista{i}, 'alphanum')
           while (~operadores.isEmpty() && (menorPrecedencia(lista{i}, operadores.peek()))) 
-              if ((lista{i} == '('))
+              if ((lista{i} == '(') || (lista{i} == '{') || (lista{i} ==  '{'))
                    break
               end
-              if ((lista{i} == ')'))
-                  while(~operadores.isEmpty() && (operadores.peek() ~= '('))
+              if ((lista{i} == ')') || (lista{i} == '}') || (lista{i} ==  ']'))
+                  while(~operadores.isEmpty() && (operadores.peek() ~= '(') || (operadores.peek() ~=  '{') || (operadores.peek() ==  '[') )
                       postfix = [postfix operadores.pop()];
                   end
                   %operadores.pop();

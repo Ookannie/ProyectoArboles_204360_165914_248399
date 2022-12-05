@@ -8,9 +8,11 @@ function precedencia = getPrecedence(operador)
             precedencia = 3;
         case '^'
             precedencia = 4;
-        case '('
+        case {'(', '{', '['}
+            operador = '(';
             precedencia = 0;
-        case ')'
-            precedencia = 5;
+        case {')', '}', ']'}
+            operador = ')';
+            precedencia = 0;
     end
 end
