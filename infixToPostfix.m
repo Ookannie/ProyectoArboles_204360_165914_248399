@@ -5,15 +5,18 @@ function postfix = infixToPostfix(cadena)
     lista = split(cadena);          %Separar los elementos 
     for i = 1:length(lista)
         if ~isstrprop(lista{i}, 'alphanum')
-          while (~operadores.isEmpty() && (menorPrecedencia(lista{i}, operadores.peek())))
+          while (~operadores.isEmpty() && (menorPrecedencia(lista{i}, operadores.peek()))) 
+              if ((lista{i} == '(') || (lista{i} == '{') || (lista{i} ==  '{'))
+                   break
+              end
               if ((lista{i} == ')') || (lista{i} == '}') || (lista{i} ==  ']'))
-                  operador = operadores.peek();
-                  while((operador ~= '(') || (operador ~=  '{') || (operador ~=  '[') )
+                  while((operadores.peek() ~= '(') || (operadores.peek() ~=  '{') || (operadores.peek() ~=  '[') )
                       postfix = [postfix operadores.pop()];
                   end
                   operadores.pop();
+              else
+                postfix = [postfix operadores.pop()];
               end
-              postfix = [postfix operadores.pop()];
           end
           operadores.add(lista{i});
         else
