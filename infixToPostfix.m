@@ -1,33 +1,45 @@
-function postfix = infixToPostfix(cadena)
+function postfix = infixToPostfix(expresion)
     operadores = java.util.Stack(); %Stack para guardar operadores
-    postfix = [];
+    postfix = java.util.ArrayList();
     
-    lista = split(cadena);          %Separar los elementos 
-    for i = 1:length(lista)
-        if ~isstrprop(lista{i}, 'alphanum')
-          while (~operadores.isEmpty() && (menorPrecedencia(lista{i}, operadores.peek()))) 
-              if ((lista{i} == '('))
-                   break
-              end
-              if ((lista{i} == ')'))
-                  while(~operadores.isEmpty() && (operadores.peek() ~= '('))
-                      postfix = [postfix operadores.pop()];
-                  end
-                  %operadores.pop();
-              else
-                postfix = [postfix operadores.pop()];
-              end
-          end
-          operadores.add(lista{i});
-        else
-              postfix = [postfix lista{i}];
-        end   
+    chars = split(expresion);
+    
+    for i = 1:length(chars)
+        
+        if(chars{i} == '(')
+            operadores.add(chars{i});
+            
+        elseif(chars{i} == ')')
+            while (~operadores.isEmpty() && (operadores.peek() ~= '('))
+                 postfix.add(operadores.pop());
+            end
+            operadores.pop();
+        
+        elseif(isOperator(chars{i}))
+            while((~operadores.isEmpty() && (menorPrecedencia(chars{i}, operadores.peek()))))
+                 postfix.add(operadores.pop());
+            end
+            operadores.add(chars{i});
+        end
+        
+        if(isOperand(chars{i}))
+            postfix.add(chars{i});
+        end
+        
     end
-    while(~operadores.empty)
-         postfix = [postfix operadores.pop()];
+    
+    while(~operadores.isEmpty())
+        postfix.add(operadores.pop());
     end
+    
 end
 
 
+function isOperator = isOperator(char)
+    isOperator = ~isstrprop(char, 'alphanum');
+end
 
+function isOperand = isOperand(char)
+    isOperand = isstrprop(char, 'alphanum');
+end
 
