@@ -1,0 +1,38 @@
+classdef Node
+    %NODE Summary of this class goes here
+    %   Detailed explanation goes here
+    
+    properties (SetAccess = 'private', GetAccess = 'private')
+        isRoot;
+        rightNode;
+        leftNode;  
+        value;
+    end
+    
+    methods
+        function node = Node(value)
+            %NODE Construct an instance of this class
+            %   Detailed explanation goes here
+            node.value = value;
+        end
+        
+        function leftNode = get.leftNode(node)
+            %METHOD1 Summary of this method goes here
+            %   Detailed explanation goes here
+            letfNode = node;
+        end
+        
+        function rightNode = get.rightNode(node)
+            %METHOD1 Summary of this method goes here
+            %   Detailed explanation goes here
+            rightNode = node;
+        end
+        
+        function node = set.value(node, value)
+            %METHOD1 Summary of this method goes here
+            %   Detailed explanation goes here
+            node.value = value;
+        end
+    end
+end
+

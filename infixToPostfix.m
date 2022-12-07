@@ -35,11 +35,3 @@ function postfix = infixToPostfix(expresion)
 end
 
 
-function isOperator = isOperator(char)
-    isOperator = ~isstrprop(char, 'alphanum');
-end
-
-function isOperand = isOperand(char)
-    isOperand = isstrprop(char, 'alphanum');
-end
-
