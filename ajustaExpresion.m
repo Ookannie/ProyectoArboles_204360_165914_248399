@@ -1,24 +1,9 @@
 function expresionAdecuada = ajustaExpresion(expresionRaw)
 %Funcion que toma la expresion ingresada al programa y 
-%la adecúa para realizar la conversion infix a postfix
+%la adecua para realizar la conversion infix a postfix
 
-%Eliminar espacios al inicio y final de la expresion
-vectorEspacios = vectorSpace(expresionRaw);
-if vectorEspacios(1) == 1       %Verificar primer elemento
-    vectorEspacios(1) = [];
-    expresionRaw(1) = [];
-end
-if vectorEspacios(end) == 1     %Verificar último elemento
-    vectorEspacios(end) =[];
-    expresionRaw(end) = [];
-end
-%Eliminar espacios repetidos
-for i = length(vectorEspacios):-1:2
-    if (vectorEspacios(i) && vectorEspacios(i-1))   
-        vectorEspacios(i) = [];
-        expresionRaw(i) = [];
-    end
-end
+%Eliminar espacios de la expresion
+expresionRaw(expresionRaw == ' ') = [];
 
 %Separar operadores
 vectorOperadores = vectorOperator(expresionRaw);
