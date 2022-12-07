@@ -19,7 +19,7 @@ classdef Nodo
         function leftNode = get.leftNode(node)
             %METHOD1 Summary of this method goes here
             %   Detailed explanation goes here
-            letfNode = node.leftNode;
+            leftNode = node.leftNode;
         end
         
         function rightNode = get.rightNode(node)

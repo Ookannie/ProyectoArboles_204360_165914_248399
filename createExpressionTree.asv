@@ -1,5 +1,6 @@
 function expressionTree = createExpressionTree(postfixExpression)
     nodes = [];
+    nodesTemp = []
     postfix = toArray(postfixExpression);
     
     for i = 1:length(postfix)
@@ -10,17 +11,18 @@ function expressionTree = createExpressionTree(postfixExpression)
         else
             operator = Nodo(postfix(i));
             
-            operandRight = nodes(end);
-            operator.rightNode = operandRight;
-            nodes(end) = [];
-            
             operandLeft = nodes(end);
             operator.leftNode = operandLeft;
+            nodes(end) = [];
+            
+            
+            operandRight = nodes(end);
+            operator.rightNode = operandRight;
             nodes(end) = [];
             
             nodes = [nodes operator];
         end
     end
     
-    expressionTree = nodes(end);
+    expressionTree = nodesTemp;
 end
