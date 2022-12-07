@@ -1,8 +1,8 @@
-classdef Node
+classdef Nodo
     %NODE Summary of this class goes here
     %   Detailed explanation goes here
     
-    properties (SetAccess = 'private', GetAccess = 'private')
+    properties
         isRoot;
         rightNode;
         leftNode;  
@@ -10,7 +10,7 @@ classdef Node
     end
     
     methods
-        function node = Node(value)
+        function node = Nodo(value)
             %NODE Construct an instance of this class
             %   Detailed explanation goes here
             node.value = value;

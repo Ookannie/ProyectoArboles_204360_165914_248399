@@ -1,0 +1,24 @@
+function expressionTree = createExpressionTree(postfixExpression)
+    nodes = java.util.Stack();
+    postfix = toArray(postfixExpression);
+    
+    for i = 1:length(postfix)
+        if(~isOperator(postfix(i)))
+            operand = Node(postfix(i));
+            nodes.add(operand);
+            
+        else
+            operator = Node(postfix(i));
+            
+            operandLeft = nodes.pop();
+            operandRight = nodes.pop();
+            
+            operator.leftNode = operandLeft;
+            operator.rightNode = operandRight;
+            
+            nodes.push(operator);
+        end
+    end
+    
+    spanningTree = nodes.pop();
+end
