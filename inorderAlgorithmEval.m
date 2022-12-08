@@ -1,5 +1,4 @@
-function result = inorderAlgorithmEval(node, treeVector)
-    
+function result = inorderAlgorithmEval(node)
     if(isempty(node))
         result = 0;
         return
@@ -34,3 +33,4 @@ function result = evaluateOperation(operator, leftValue, rightValue)
             result = leftValue ^ rightValue;
     end
 end
+
