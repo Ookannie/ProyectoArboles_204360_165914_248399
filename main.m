@@ -13,10 +13,11 @@ integridadExpresion(expresionAdecuada);
 
 expressionPostfix = infixToPostfix(expresionAdecuada);
 if(sum(isstrprop(expressionRaw,'alpha')))
-    disp('Expresion algebraica ingresada: mostrando expresion en notacion Postfix:');
-    disp(expressionPostfix);
+    disp('Expresion algebraica ingresada.');
 else
     expressionTree = createExpressionTree(expressionPostfix);
     resultado = inorderAlgorithmEval(expressionTree);
-    fprintf('%s = %d \n\n', expresionAdecuada, resultado);
+    fprintf('%s = %f \n\n', expresionAdecuada, resultado);
 end
+disp('Mostrando expresion en notacion Postfix: ');
+disp(expressionPostfix);
