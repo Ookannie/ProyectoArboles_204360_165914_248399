@@ -1,4 +1,5 @@
-function result = inorderAlgorithmEval(node)    
+function result = inorderAlgorithmEval(node, treeVector)
+    
     if(isempty(node))
         result = 0;
         return
@@ -10,6 +11,7 @@ function result = inorderAlgorithmEval(node)
     end
    
     resultLeft = inorderAlgorithmEval(node.leftNode);
+    
     resultRight = inorderAlgorithmEval(node.rightNode);
     
     result = evaluateOperation(node.value, resultLeft, resultRight);
