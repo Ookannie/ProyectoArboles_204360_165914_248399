@@ -9,13 +9,13 @@ function expressionTree = createExpressionTree(postfixExpression)
             
         else
             operator = Nodo(postfix(i));
+                        
+            operandLeft = nodes(end);
+            operator.leftNode = operandLeft;
+            nodes(end) = [];
             
             operandRight = nodes(end);
             operator.rightNode = operandRight;
-            nodes(end) = [];
-            
-            operandLeft = nodes(end);
-            operator.leftNode = operandLeft;
             nodes(end) = [];
             
             nodes = [nodes operator];
