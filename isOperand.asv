@@ -1,6 +1,0 @@
-function isOperand = isOperand(char)
-    if(isstrprop(char, 'alphanum'))
-        isOperand = 1;
-    else
-    end
-end

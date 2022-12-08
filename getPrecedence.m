@@ -1,3 +1,5 @@
+%Funcion que regresa un numero entrero asociado a 
+%la precedencia del operador enviado en parametro
 function precedencia = getPrecedence(operador)
     switch operador
         case {'+','-'}

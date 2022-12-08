@@ -1,9 +1,10 @@
 classdef Nodo
-    %NODE Summary of this class goes here
-    %   Detailed explanation goes here
+    %{
+        Clase encargada de crear objetos de tipo Nodo con las propiedades:
+        rightNode, leftNode y value.
+    %}
     
     properties
-        isRoot;
         rightNode;
         leftNode;  
         value;
@@ -11,38 +12,36 @@ classdef Nodo
     
     methods
         function node = Nodo(value)
-            %NODE Construct an instance of this class
-            %   Detailed explanation goes here
+            %Metodo constructor que recibe como parametro el valor del nodo
+            %creado
             node.value = value;
         end
         
         function leftNode = get.leftNode(node)
-            %METHOD1 Summary of this method goes here
-            %   Detailed explanation goes here
+            %Metodo de acceso para obtener el hijo izquiero del nodo actual
             leftNode = node.leftNode;
         end
         
         function rightNode = get.rightNode(node)
-            %METHOD1 Summary of this method goes here
-            %   Detailed explanation goes here
+            %Metodo de acceso para obtener el hijo derecho del nodo actual
             rightNode = node.rightNode;
         end
         
         function node = set.value(node, value)
-            %METHOD1 Summary of this method goes here
-            %   Detailed explanation goes here
+            %Metodo de acceso que asigna lainformacion enviada en el parametro 
+            %al valor del nodo actual
             node.value = value;
         end
         
         function node = set.leftNode(node, leftNode)
-            %METHOD1 Summary of this method goes here
-            %   Detailed explanation goes here
+            %Metodo de acceso que asigna el valor enviado en el parametro
+            %al hijo izquierdo del nodo actual
             node.leftNode = leftNode;
         end
         
         function node = set.rightNode(node, rightNode)
-            %METHOD1 Summary of this method goes here
-            %   Detailed explanation goes here
+            %Metodo de acceso que asigna el valor enviado en el parametro 
+            %al hijo izquierdo del nodo actual
             node.rightNode = rightNode;
         end
     end
