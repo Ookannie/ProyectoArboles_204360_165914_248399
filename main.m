@@ -8,10 +8,14 @@ clear all; clc; close all;
 %% Ingresar expresion a generar
 expressionRaw = input('Ingresar expresion matematica: ', "s");
 
+%% Adecuar expresion y verificar que no contenga errores
 expresionAdecuada = ajustaExpresion(expressionRaw);
 integridadExpresion(expresionAdecuada);
 
+%% Conversion de infix a postfix
 expressionPostfix = infixToPostfix(expresionAdecuada);
+
+%% Tipo de expresion ingresada
 if(sum(isstrprop(expressionRaw,'alpha')))
     disp('Expresion algebraica ingresada.');
 else
@@ -19,5 +23,7 @@ else
     resultado = inorderAlgorithmEval(expressionTree);
     fprintf('%s = %f \n\n', expresionAdecuada, resultado);
 end
+
+%% Despliegue de notacion Postfix
 disp('Mostrando expresion en notacion Postfix: ');
 disp(expressionPostfix);
