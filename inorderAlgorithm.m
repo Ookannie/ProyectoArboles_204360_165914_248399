@@ -4,6 +4,6 @@ function inorder = inorderAlgorithm(node)
     end
     
     inorderAlgorithm(node.leftNode);
-    node.value
+    inorder = node.value;
     inorderAlgorithm(node.rightNode);
 end
