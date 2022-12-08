@@ -47,7 +47,7 @@ end
 
   end
          
-  if(ismember(expresion{longExp}, operadores ) && expresion{longExp} ~= ')' )
-  error('expresion no valida')
+  if(ismemberC, operadores ) && )
+  
   end
 end
