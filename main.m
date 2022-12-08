@@ -6,7 +6,7 @@ clear all; clc; close all;
 %expresion postfix obtenida.
 
 %% Ingresar expresion a generar
-expressionRaw = input('Ingresar expresion matematica: ', "s");
+expressionRaw = input('Ingresar expresion matematica: ', 's');
 
 %% Adecuar expresion y verificar que no contenga errores
 expresionAdecuada = ajustaExpresion(expressionRaw);

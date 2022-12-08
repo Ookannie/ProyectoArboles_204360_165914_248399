@@ -48,12 +48,12 @@ end
   end
   
   %Operador no valido al final de expresion
-  if(ismember(expresion{longitudExpresion}, operadores ) && expresion{longitudExpresion} ~= ')')
+  if(sum(ismember(expresion{longitudExpresion}, operadores)) && sum(expresion{longitudExpresion} ~= ')'))
     error('Expresion no valida: Operador mal colocado al final de expresion.');
   end
   
   %Operador no valido al inicio de expresion
-  if(ismember(expresion{1}, operadores ) & expresion{1} ~= ')')
+  if(ismember(expresion{1}, operadores()) & expresion{1} ~= '(')
     error('Expresion no valida: Operador mal colocado al inicio de expresion.');
   end
   
