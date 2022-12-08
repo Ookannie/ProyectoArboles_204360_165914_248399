@@ -29,7 +29,10 @@ for i=1:longitudExpresion
      if(sum(voperadores) && sum(voperadores2))
          if(((expresion{i} == '(') && (~vectorOperatorViable(expresion{i+1}))) || ((expresion{i} == ')') && (expresion{i+1} == '(')))
             error('Expresion no valida: Mal uso de operadores.'); 
-        end
+         end
+         if(ismember(expresion{i},operadores(1:end-2)) && ismember(expresion{i+1},operadores(1:end-2)))
+            error('Expresion no valida: dos operadores juntos.');
+         end
      end
      if(sum(~vValida) > 0)
          error('Expresion no valida: Elementos desconocidos en la expresion.');
@@ -50,7 +53,7 @@ end
   end
   
   %Operador no valido al inicio de expresion
-  if(~vectorOpViables(expresion{i}))
+  if(ismember(expresion{1}, operadores ) & expresion{1} ~= ')')
     error('Expresion no valida: Operador mal colocado al inicio de expresion.');
   end
   

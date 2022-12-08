@@ -29,7 +29,8 @@ for i=1:longitudExpresion
      if(sum(voperadores) && sum(voperadores2))
          if(((expresion{i} == '(') && (~vectorOperatorViable(expresion{i+1}))) || ((expresion{i} == ')') && (expresion{i+1} == '(')))
             error('Expresion no valida: Mal uso de operadores.'); 
-        end
+         end
+         if((expresion{i} = ))
      end
      if(sum(~vValida) > 0)
          error('Expresion no valida: Elementos desconocidos en la expresion.');
@@ -39,16 +40,18 @@ for i=1:longitudExpresion
      end
 end
   
-  %Numeros de 
+  %Numeros de parentesis no coinciden
   if (contab ~= contce)
     error('Expresion no valida: Mal uso de parentesis');
   end
-         
+  
+  %Operador no valido al final de expresion
   if(ismember(expresion{longitudExpresion}, operadores ) && expresion{longitudExpresion} ~= ')')
     error('Expresion no valida: Operador mal colocado al final de expresion.');
   end
   
-  if(~vectorOpViables(expresion{i}))
+  %Operador no valido al inicio de expresion
+  if(ismember(expresion{1}, operadores ) & expresion{1} ~= ')')
     error('Expresion no valida: Operador mal colocado al inicio de expresion.');
   end
   
@@ -56,6 +59,7 @@ end
 end
 
 function vectorOpViables = vectorOperatorViable(char)
+%Funcion que detecta si un operador es viable como inicio de expresion
     vectorOpViables = (char == '+');
     vectorOpViables = vectorOpViables | char == '-';
     vectorOpViables = vectorOpViables | char == '(';
